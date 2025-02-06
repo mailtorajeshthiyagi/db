@@ -35,7 +35,7 @@ jobs:
         run: echo "..."
       - name: write db name1sdf
         run: |
-          Write-host : ${{ env.MONGODB_USERNAME }}
+         echo "mango db name ${{ env.MONGODB_USERNAME }}"
 
   deploy:
     needs: test
