@@ -33,9 +33,9 @@ jobs:
         run: npm test
       - name: Output information
         run: echo "..."
-      - name: write db name1sdf
+      - name: write db name
         run: |
-         echo "mango db name ${{ env.MONGODB_USERNAME }}"
+         echo "$MONGODB_DB_NAME"
 
   deploy:
     needs: test
