@@ -7,15 +7,15 @@ on:
       - dev
 env:
 
-  MONGODB_DB_NAME: gitdb
-  dbuser_name: RajeshTestDB
+  MONGODB_DB_NAME: ${{ secrets.GITHUB_TOKEN.MONGODB_DB_NAME}}
+ # dbuser_name: RajeshTestDB
 
 jobs:
   test:
    env: 
      MONGODB_CLUSTER_ADDRESS: gitdb.yv6ps.mongodb.net
-     MONGODB_USERNAME: mailtorajeshthiyagi
-     MONGODB_PASSWORD: ZzamUnS105hUVNyW
+     MONGODB_USERNAME: ${{ secrets.GITHUB_TOKEN.MONGODB_USERNAME }}
+     MONGODB_PASSWORD: ${{ secrets.GITHUB_TOKEN.MONGODB_PASSWORD }}
      PORT: 8080
    runs-on: ubuntu-latest
    steps:
