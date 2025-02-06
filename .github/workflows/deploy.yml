@@ -2,13 +2,22 @@ name: Deployment
 on:
   push:
     branches:
+      - master
       - main
       - dev
+env:
+
+  MONGODB_DB_NAME: gitdb
+
 jobs:
   test:
-    environment: testing
-    runs-on: ubuntu-latest
-    steps:
+   env: 
+     MONGODB_CLUSTER_ADDRESS: gitdb.yv6ps.mongodb.net
+     MONGODB_USERNAME: mailtorajeshthiyagi
+     MONGODB_PASSWORD: ZzamUnS105hUVNyW
+     PORT: 8080
+   runs-on: ubuntu-latest
+   steps:
       - name: Get Code
         uses: actions/checkout@v3
       - name: Cache dependencies
@@ -24,6 +33,10 @@ jobs:
         run: npm test
       - name: Output information
         run: echo "..."
+      - name: write db name
+        run: |
+          Write-host : "$env:MONGODB_USERNAME"
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
