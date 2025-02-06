@@ -37,6 +37,9 @@ jobs:
       - name: write db name
         run: |
          echo "$MONGODB_DB_NAME"
+      - name: write rajesh BD name
+        run: |
+         echo "$dbuser_name"
 
   deploy:
     needs: test
