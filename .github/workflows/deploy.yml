@@ -8,6 +8,7 @@ on:
 env:
 
   MONGODB_DB_NAME: gitdb
+  dbuser_name: RajeshTestDB
 
 jobs:
   test:
