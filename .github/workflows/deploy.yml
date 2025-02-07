@@ -4,22 +4,22 @@ on:
     branches:
       - master
       - main
-      - dev
+      - dev1
 env:
 
-  MONGODB_DB_NAME: ${{ secrets.GITHUB_TOKEN.MONGODB_DB_NAME}}
+  MONGODB_DB_NAME: ${{ secrets.MONGODB_DB_NAME }}
  # dbuser_name: RajeshTestDB
 
 jobs:
   test:
    env: 
      MONGODB_CLUSTER_ADDRESS: gitdb.yv6ps.mongodb.net
-     MONGODB_USERNAME: ${{ secrets.GITHUB_TOKEN.MONGODB_USERNAME }}
-     MONGODB_PASSWORD: ${{ secrets.GITHUB_TOKEN.MONGODB_PASSWORD }}
+     MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+     MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
      PORT: 8080
    runs-on: ubuntu-latest
    steps:
-      - name: Get Code
+      - name: Get Code1
         uses: actions/checkout@v3
       - name: Cache dependencies
         uses: actions/cache@v3
