@@ -3,14 +3,18 @@ on:
     push:
       branches: development
     workflow_dispatch:
+env:
+     mangodb: DBname_rajesh
 jobs:
     testing:
         runs-on: windows-latest
         outputs:
-            script_file: ${{steps.publish.outputs.script_file}}
+          script_file: ${{steps.publish.outputs.script_file}}
         steps:
             - name: check out repo
               uses: actions/checkout@v4
+            - name: what is DB name
+              run: dbname ${{env.mangodb}} 
             - name: "what is your name"
               id: publish
               run: |
