@@ -14,7 +14,7 @@ jobs:
             - name: check out repo
               uses: actions/checkout@v4
             - name: what is DB name
-              run: dbname ${{env.mangodb}} 
+              run: write-host "dbname ${{env.mangodb}} "
             - name: "what is your name"
               id: publish
               run: |
