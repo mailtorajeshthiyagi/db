@@ -3,10 +3,12 @@ on:
     push:
       branches: development
     workflow_dispatch:
-env:
-     mangodb: DBname_rajesh
+    
 jobs:
-    testing:
+    test:
+        environments: testing
+        env:
+          mangodb: ${{ secrets.MYDBNAME }}
         runs-on: windows-latest
         outputs:
           script_file: ${{steps.publish.outputs.script_file}}
@@ -21,7 +23,7 @@ jobs:
                  $a = 'My name is Rajesh'
                  write-output "Script_file=$a" >> $env:GITHUB_OUTPUT
     deploy:
-       needs: testing
+       needs: test
        runs-on: windows-latest
        steps:
          - name: "repository"
