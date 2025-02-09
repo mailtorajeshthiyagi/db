@@ -10,7 +10,7 @@ jobs:
             script_file: ${{steps.publish.outputs.script_file}}
         steps:
             - name: check out repo
-              run: actions/checkout@v4
+              uses: actions/checkout@v4
             - name: "what is your name"
               id: publish
               run: |
