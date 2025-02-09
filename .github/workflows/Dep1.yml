@@ -1,0 +1,27 @@
+name: Deployment_workflow
+on: 
+    push:
+      branches: development
+    workflow_dispatch:
+jobs:
+    testing:
+        runs-on: windows-latest
+        outputs:
+            script_file: ${{steps.publish.outputs.script_file}}
+        steps:
+            - name: check out repo
+              run: actions/checkout@v4
+            - name: "what is your name"
+              id: publish
+              run: |
+                 $a = 'My name is Rajesh'
+                 write-output {Script_file=$s >> $env: GIT_output }
+    deploy:
+       needs: testing
+       runs-on: windows-latest
+       steps:
+         - name: "repository"
+           uses: actions/checkout@v4
+         - name: get variable name
+           run:  |
+               write-host ${{needs.testing.outputs.script_file}}
