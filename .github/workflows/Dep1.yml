@@ -15,7 +15,7 @@ jobs:
               id: publish
               run: |
                  $a = 'My name is Rajesh'
-                 write-output "Script_file=$s" >> $env:GITHUB_OUTPUT
+                 write-output "Script_file=$a" >> $env:GITHUB_OUTPUT
     deploy:
        needs: testing
        runs-on: windows-latest
