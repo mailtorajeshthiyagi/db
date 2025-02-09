@@ -6,7 +6,7 @@ on:
     
 jobs:
     test:
-        environments: testing
+        environment: testing
         env:
           mangodb: ${{ secrets.MYDBNAME }}
         runs-on: windows-latest
